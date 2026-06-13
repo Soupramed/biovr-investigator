@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eksplorasi Jantung — BioVR-Investigator</title>
+  <meta name="description" content="Eksplorasi interaktif 3D sistem peredaran darah manusia dengan AI BioBot" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/explore.css" />
+</head>
+<body>
+  <!-- ═══════════════ THREE.JS CANVAS ═══════════════ -->
+  <canvas id="explore-canvas"></canvas>
+
+  <!-- ═══════════════ TOP BAR ═══════════════ -->
+  <header id="explore-topbar" class="explore-topbar">
+    <a href="/index.html" class="topbar-back" title="Kembali ke beranda">
+      <span class="back-icon">←</span>
+      <span class="back-text">Kembali</span>
+    </a>
+
+    <h1 class="topbar-title">
+      <span class="title-icon">🫀</span>
+      Eksplorasi Jantung Manusia
+    </h1>
+
+    <div class="topbar-modes">
+      <button class="mode-btn active" data-mode="explore" id="mode-explore-btn">
+        <span class="mode-icon">🔍</span>
+        <span class="mode-label">Eksplorasi</span>
+      </button>
+      <button class="mode-btn" data-mode="diagnostic" id="mode-diagnostic-btn">
+        <span class="mode-icon">🩺</span>
+        <span class="mode-label">Diagnostik</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══════════════ INFO PANEL (Left) ═══════════════ -->
+  <aside id="info-panel" class="info-panel">
+    <button id="info-panel-close" class="panel-close-btn" title="Tutup panel">✕</button>
+
+    <div class="info-panel-content" id="info-panel-content">
+      <!-- Welcome state -->
+      <div class="info-welcome" id="info-welcome">
+        <div class="welcome-icon">🫀</div>
+        <h2 class="welcome-title">Selamat Datang!</h2>
+        <p class="welcome-text">
+          Klik bagian jantung 3D untuk mempelajari anatominya secara detail.
+          Gunakan mouse untuk memutar, scroll untuk zoom.
+        </p>
+        <div class="welcome-hints">
+          <div class="hint-item">
+            <span class="hint-icon">🖱️</span>
+            <span>Klik & seret untuk memutar</span>
+          </div>
+          <div class="hint-item">
+            <span class="hint-icon">🔍</span>
+            <span>Scroll untuk zoom</span>
+          </div>
+          <div class="hint-item">
+            <span class="hint-icon">👆</span>
+            <span>Klik organ untuk info</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail state (hidden initially) -->
+      <div class="info-detail hidden" id="info-detail">
+        <div class="info-header">
+          <div class="info-color-dot" id="info-color-dot"></div>
+          <h2 class="info-name" id="info-name">—</h2>
+        </div>
+        <p class="info-description" id="info-description">—</p>
+
+        <div class="info-facts" id="info-facts">
+          <h3 class="facts-title">📌 Fakta Menarik</h3>
+          <ul class="facts-list" id="info-facts-list">
+            <!-- Filled dynamically -->
+          </ul>
+        </div>
+
+        <button class="btn btn-sm btn-secondary info-reset-btn" id="info-reset-btn">
+          ← Kembali ke Ikhtisar
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════════ BIOBOT PANEL (Right Bottom) ═══════════════ -->
+  <section id="biobot-panel" class="biobot-panel">
+    <div class="biobot-header" id="biobot-header">
+      <div class="biobot-avatar">🤖</div>
+      <div class="biobot-title-group">
+        <h3 class="biobot-name">BioBot</h3>
+        <span class="biobot-status">Online — Siap membantu</span>
+      </div>
+      <button id="biobot-toggle-btn" class="biobot-toggle-btn" title="Minimize">
+        <span class="toggle-icon">▾</span>
+      </button>
+    </div>
+
+    <div class="biobot-body" id="biobot-body">
+      <div class="biobot-messages" id="biobot-messages">
+        <!-- Messages will be appended here -->
+      </div>
+
+      <div class="biobot-input-area">
+        <input
+          type="text"
+          id="biobot-input"
+          class="biobot-input"
+          placeholder="Tanyakan tentang jantung..."
+          autocomplete="off"
+        />
+        <button id="biobot-send-btn" class="biobot-send-btn" title="Kirim">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L11 13"></path>
+            <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+          </svg>
+        </button>
+        <button id="biobot-mic-btn" class="biobot-mic-btn" title="Bicara">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+            <line x1="12" y1="19" x2="12" y2="23"></line>
+            <line x1="8" y1="23" x2="16" y2="23"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ BOTTOM CONTROLS ═══════════════ -->
+  <nav id="explore-controls" class="explore-controls">
+    <div class="controls-group controls-layers">
+      <span class="controls-label">Lapisan:</span>
+      <button class="ctrl-btn active" data-layer="chambers" id="toggle-chambers-btn">
+        <span class="ctrl-icon">🏠</span> Ruang Jantung
+      </button>
+      <button class="ctrl-btn active" data-layer="valves" id="toggle-valves-btn">
+        <span class="ctrl-icon">🚪</span> Katup
+      </button>
+      <button class="ctrl-btn active" data-layer="vessels" id="toggle-vessels-btn">
+        <span class="ctrl-icon">🩸</span> Pembuluh
+      </button>
+    </div>
+
+    <div class="controls-divider"></div>
+
+    <div class="controls-group controls-actions">
+      <button class="ctrl-btn" id="reset-view-btn" title="Reset posisi kamera">
+        <span class="ctrl-icon">🎯</span> Reset View
+      </button>
+      <button class="ctrl-btn" id="toggle-labels-btn" title="Tampilkan/sembunyikan label">
+        <span class="ctrl-icon">🏷️</span> Label
+      </button>
+      <button class="ctrl-btn active" id="toggle-bloodflow-btn" title="Tampilkan/sembunyikan aliran darah">
+        <span class="ctrl-icon">💉</span> Aliran Darah
+      </button>
+      <button class="ctrl-btn" id="toggle-cutaway-btn" title="Tampilan potong (cutaway)">
+        <span class="ctrl-icon">✂️</span> Cutaway
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ LABEL CONTAINER ═══════════════ -->
+  <div id="label-container" class="label-container"></div>
+
+  <!-- ═══════════════ LOADING OVERLAY ═══════════════ -->
+  <div id="loading-overlay" class="loading-overlay">
+    <div class="loading-content">
+      <div class="loading-heart">🫀</div>
+      <h2 class="loading-text">Membangun Model Jantung 3D...</h2>
+      <div class="loading-bar">
+        <div class="loading-bar-fill" id="loading-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/js/explore/explorer-app.js"></script>
+</body>
+</html>

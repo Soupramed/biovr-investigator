@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evaluasi Interaktif — BioVR-Investigator</title>
+  <meta name="description" content="Kuis interaktif HOTS tentang Sistem Peredaran Darah untuk SMA Kelas XI" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/quiz.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫀</text></svg>" />
+</head>
+<body class="quiz-page">
+
+  <!-- ── Background Orbs ── -->
+  <div class="quiz-bg-orbs" aria-hidden="true">
+    <div class="orb orb--cyan"></div>
+    <div class="orb orb--purple"></div>
+    <div class="orb orb--red"></div>
+  </div>
+
+  <!-- ── Navigation Bar ── -->
+  <nav class="quiz-nav" role="navigation" aria-label="Quiz navigation">
+    <div class="quiz-nav__inner">
+      <a href="/index.html" class="quiz-nav__back" aria-label="Kembali ke halaman utama">
+        <span>←</span>
+        <span>Kembali</span>
+      </a>
+      <h1 class="quiz-nav__title">Evaluasi Interaktif</h1>
+      <div class="quiz-nav__score" id="quiz-best-score" aria-label="Skor terbaik">
+        <span class="quiz-nav__score-icon">🏆</span>
+        <span id="quiz-best-score-value">—</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Main Content ── -->
+  <main class="quiz-content" role="main">
+    <div class="quiz-container">
+
+      <!-- ── Start Screen ── -->
+      <section id="quiz-start-screen" class="quiz-card">
+        <div class="quiz-start">
+          <span class="quiz-start__icon">🫀</span>
+          <h2 class="quiz-start__title">
+            Kuis Sistem <span class="text-gradient">Peredaran Darah</span>
+          </h2>
+          <p class="quiz-start__desc">
+            Uji pemahamanmu tentang Sistem Peredaran Darah manusia melalui 15 soal
+            Higher Order Thinking Skills (HOTS) tingkat Menganalisis &amp; Mengevaluasi.
+          </p>
+          <div class="quiz-start__meta">
+            <div class="quiz-start__meta-item">
+              <span>📝</span> 15 Soal
+            </div>
+            <div class="quiz-start__meta-item">
+              <span>⏱️</span> 30 detik/soal
+            </div>
+            <div class="quiz-start__meta-item">
+              <span>🎯</span> HOTS C4 &amp; C5
+            </div>
+          </div>
+          <button id="quiz-start-btn" class="quiz-btn quiz-btn--next quiz-btn--lg" type="button">
+            Mulai Kuis 🚀
+          </button>
+        </div>
+      </section>
+
+      <!-- ── Progress Bar (hidden until quiz starts) ── -->
+      <div id="quiz-progress-wrapper" class="quiz-progress" style="display:none;">
+        <div class="quiz-progress__info">
+          <span class="quiz-progress__label">Progres</span>
+          <span class="quiz-progress__count">
+            <span id="quiz-current-num">1</span> / <span id="quiz-total-num">15</span>
+          </span>
+        </div>
+        <div class="quiz-progress__bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          <div class="quiz-progress__fill" id="quiz-progress-fill" style="width:0%"></div>
+        </div>
+      </div>
+
+      <!-- ── Timer Bar (hidden until quiz starts) ── -->
+      <div id="quiz-timer-wrapper" class="quiz-timer" style="display:none;">
+        <div class="quiz-timer__bar">
+          <div class="quiz-timer__fill" id="quiz-timer-fill" style="width:100%"></div>
+        </div>
+        <div class="quiz-timer__text">
+          <span>⏱️ Waktu tersisa</span>
+          <span class="quiz-timer__seconds" id="quiz-timer-seconds">30</span>
+        </div>
+      </div>
+
+      <!-- ── Quiz Card (rendered by JS) ── -->
+      <div id="quiz-question-card" style="display:none;"></div>
+
+    </div>
+  </main>
+
+  <!-- ── Results Modal Overlay ── -->
+  <div id="quiz-results-overlay" class="quiz-results-overlay" role="dialog" aria-modal="true" aria-label="Hasil Kuis">
+    <div class="quiz-results-card" id="quiz-results-card">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+
+  <!-- ── Quiz Engine ── -->
+  <script type="module" src="/js/quiz/quiz-engine.js"></script>
+
+</body>
+</html>

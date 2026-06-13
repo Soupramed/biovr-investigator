@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BioVR-Investigator: Media Pembelajaran VR + AI untuk Biologi Kelas XI SMA — Jelajahi Sistem Peredaran Darah secara Imersif" />
+  <meta name="keywords" content="BioVR, VR, biologi, pembelajaran, LIDM, ITDP, peredaran darah, AI, virtual reality" />
+  <meta name="author" content="Tim BioVR-Investigator" />
+  <meta name="theme-color" content="#050810" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="BioVR-Investigator — Jelajahi Tubuh Manusia dari Dalam" />
+  <meta property="og:description" content="Media Pembelajaran VR + AI untuk Biologi Kelas XI SMA — Sistem Peredaran Darah" />
+  <meta property="og:type" content="website" />
+
+  <title>BioVR-Investigator — Jelajahi Tubuh Manusia dari Dalam</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/landing.css">
+
+  <!-- Favicon (inline SVG data URI) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='28' font-size='28'%3E🧬%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="glass-nav" id="main-nav" aria-label="Navigasi utama">
+    <div class="container nav-container">
+      <!-- Logo -->
+      <a href="/" class="nav-logo" aria-label="BioVR Investigator - Beranda">
+        <svg class="nav-logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M16 2C12 2 9 5 9 8c0 2 1 3.5 2.5 5C9 14.5 7 17 7 20c0 4 3.5 7.5 9 10 5.5-2.5 9-6 9-10 0-3-2-5.5-4.5-7C22 11.5 23 10 23 8c0-3-3-6-7-6z" stroke="url(#dna-grad)" stroke-width="1.5" fill="none"/>
+          <path d="M11 10h10M11 15h10M11 20h10" stroke="url(#dna-grad)" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+          <circle cx="11" cy="10" r="1.5" fill="#00d4ff"/>
+          <circle cx="21" cy="10" r="1.5" fill="#ff3366"/>
+          <circle cx="21" cy="15" r="1.5" fill="#00d4ff"/>
+          <circle cx="11" cy="15" r="1.5" fill="#ff3366"/>
+          <circle cx="11" cy="20" r="1.5" fill="#00d4ff"/>
+          <circle cx="21" cy="20" r="1.5" fill="#ff3366"/>
+          <defs>
+            <linearGradient id="dna-grad" x1="7" y1="2" x2="25" y2="30" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00d4ff"/>
+              <stop offset="1" stop-color="#7c3aed"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="nav-logo-text">BioVR <span class="text-gradient">Investigator</span></span>
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#beranda" class="nav-link active">Beranda</a></li>
+        <li><a href="#masalah" class="nav-link">Masalah</a></li>
+        <li><a href="#fitur" class="nav-link">Fitur</a></li>
+        <li><a href="#alur" class="nav-link">Alur</a></li>
+        <li><a href="/explore.html" class="nav-link">Demo</a></li>
+        <li><a href="/quiz.html" class="nav-link">Kuis</a></li>
+      </ul>
+
+      <!-- CTA Button -->
+      <a href="/explore.html" class="btn btn-primary btn-sm nav-cta">
+        Mulai Eksplorasi
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      <!-- Mobile Hamburger -->
+      <button class="hamburger" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <ul class="mobile-menu-links">
+        <li><a href="#beranda" class="nav-link">Beranda</a></li>
+        <li><a href="#masalah" class="nav-link">Masalah</a></li>
+        <li><a href="#fitur" class="nav-link">Fitur</a></li>
+        <li><a href="#alur" class="nav-link">Alur</a></li>
+        <li><a href="/explore.html" class="nav-link">Demo</a></li>
+        <li><a href="/quiz.html" class="nav-link">Kuis</a></li>
+      </ul>
+      <a href="/explore.html" class="btn btn-primary btn-lg mobile-cta">Mulai Eksplorasi</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section class="hero-section section" id="beranda">
+    <div class="hero-bg-effects" aria-hidden="true">
+      <div class="hero-orb hero-orb--cyan"></div>
+      <div class="hero-orb hero-orb--purple"></div>
+      <div class="hero-orb hero-orb--red"></div>
+    </div>
+
+    <div class="container hero-container">
+      <!-- Left Content -->
+      <div class="hero-content">
+        <span class="badge badge-cyan hero-badge reveal">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <circle cx="6" cy="6" r="4" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="6" cy="6" r="1.5" fill="currentColor"/>
+          </svg>
+          LIDM 2026 — ITDP
+        </span>
+
+        <h1 class="hero-title reveal delay-1">
+          Jelajahi <span class="text-gradient">Tubuh Manusia</span><br>
+          dari <span class="text-gradient-red">Dalam</span>
+        </h1>
+
+        <p class="hero-subtitle reveal delay-2">
+          Platform pembelajaran VR + AI imersif untuk mata pelajaran Biologi kelas XI SMA.
+          Masuki tubuh manusia, investigasi sistem peredaran darah, dan pecahkan kasus diagnostik
+          bersama asisten AI — <strong>BioBot</strong>.
+        </p>
+
+        <div class="hero-actions reveal delay-3">
+          <a href="/explore.html" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 2L3 7v9a2 2 0 002 2h10a2 2 0 002-2V7l-7-5z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              <path d="M8 14v-4h4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            Mulai Eksplorasi
+          </a>
+          <a href="#fitur" class="btn btn-secondary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <polygon points="8,4 16,10 8,16" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+            </svg>
+            Lihat Demo
+          </a>
+        </div>
+
+        <!-- Trust indicators -->
+        <div class="hero-trust reveal delay-4">
+          <div class="trust-item">
+            <span class="trust-icon">🎓</span>
+            <span class="trust-text">Kurikulum Merdeka</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="trust-icon">🔬</span>
+            <span class="trust-text">Sistem Peredaran Darah</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <span class="trust-icon">🤖</span>
+            <span class="trust-text">AI-Powered</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Three.js Canvas -->
+      <div class="hero-canvas-wrapper">
+        <div class="tech-card-overlay">
+          <div class="tech-card-bracket top-left"></div>
+          <div class="tech-card-bracket top-right"></div>
+          <div class="tech-card-bracket bottom-left"></div>
+          <div class="tech-card-bracket bottom-right"></div>
+          <div class="tech-card-grid"></div>
+          <div class="tech-card-scanner"></div>
+          <div class="tech-card-status">
+            <span class="status-dot pulsing"></span>
+            <span class="status-text">CARDIAC SCAN: ACTIVE</span>
+          </div>
+        </div>
+        <canvas id="hero-canvas" aria-label="Visualisasi 3D Jantung Manusia"></canvas>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-indicator-mouse">
+        <div class="scroll-indicator-dot"></div>
+      </div>
+      <span class="scroll-indicator-text">Gulir ke bawah</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       MASALAH SECTION
+       ============================================================ -->
+  <section class="section" id="masalah">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="badge badge-red">Identifikasi Masalah</span>
+        <h2>Mengapa Pembelajaran Konvensional <span class="text-gradient-red">Tidak Efektif?</span></h2>
+        <p>Berbagai tantangan yang dihadapi siswa dan guru dalam memahami materi biologi, khususnya sistem peredaran darah.</p>
+      </div>
+
+      <div class="masalah-grid">
+        <!-- Card 1 -->
+        <article class="glass-card masalah-card reveal delay-1">
+          <div class="masalah-icon">👁️</div>
+          <h3 class="masalah-title">Keterbatasan Visualisasi Objek Mikroskopis</h3>
+          <p class="masalah-desc">Struktur sel darah, katup jantung, dan pembuluh kapiler sulit divisualisasikan hanya dengan gambar 2D di buku teks.</p>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="glass-card masalah-card reveal delay-2">
+          <div class="masalah-icon">🧠</div>
+          <h3 class="masalah-title">Rendahnya Kesadaran Spasial & Miskonsepsi</h3>
+          <p class="masalah-desc">Siswa kesulitan memahami hubungan antar-organ dalam ruang 3D, memicu miskonsepsi tentang aliran darah.</p>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="glass-card masalah-card reveal delay-3">
+          <div class="masalah-icon">😴</div>
+          <h3 class="masalah-title">Materi Abstrak Memicu Kejenuhan</h3>
+          <p class="masalah-desc">Presentasi satu arah dan hafalan istilah latin membuat siswa kehilangan motivasi dan minat belajar biologi.</p>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="glass-card masalah-card reveal delay-4">
+          <div class="masalah-icon">🔬</div>
+          <h3 class="masalah-title">Kesenjangan Fasilitas Laboratorium</h3>
+          <p class="masalah-desc">Tidak semua sekolah memiliki mikroskop berkualitas dan spesimen untuk praktikum observasi sistem peredaran darah.</p>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="glass-card masalah-card reveal delay-5">
+          <div class="masalah-icon">📚</div>
+          <h3 class="masalah-title">Pembelajaran Satu Arah (Kurang HOTS)</h3>
+          <p class="masalah-desc">Metode ceramah tidak melatih Higher Order Thinking Skills — siswa pasif menerima, bukan aktif menganalisis.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FITUR SECTION
+       ============================================================ -->
+  <section class="section" id="fitur">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="badge badge-cyan">Solusi Kami</span>
+        <h2>Solusi Inovatif <span class="text-gradient">BioVR-Investigator</span></h2>
+        <p>Empat fitur utama yang mengubah cara belajar biologi menjadi pengalaman yang imersif, interaktif, dan menyenangkan.</p>
+      </div>
+
+      <div class="fitur-grid">
+        <!-- Feature 1 -->
+        <article class="glass-card fitur-card reveal delay-1">
+          <div class="fitur-card-header">
+            <div class="icon-circle icon-circle-cyan">🤖</div>
+            <span class="badge badge-cyan">AI Assistant</span>
+          </div>
+          <h3 class="fitur-title">BioBot: AI Virtual Lab Assistant</h3>
+          <p class="fitur-desc">
+            Asisten virtual bertenaga NLP yang memandu siswa melalui voice command.
+            BioBot menjelaskan organ, menjawab pertanyaan, dan mengarahkan eksplorasi
+            dengan laser pointer virtual.
+          </p>
+          <ul class="fitur-tags">
+            <li class="fitur-tag">Natural Language Processing</li>
+            <li class="fitur-tag">Voice Command</li>
+            <li class="fitur-tag">Laser Pointer</li>
+          </ul>
+        </article>
+
+        <!-- Feature 2 -->
+        <article class="glass-card fitur-card reveal delay-2">
+          <div class="fitur-card-header">
+            <div class="icon-circle icon-circle-red">🔬</div>
+            <span class="badge badge-red">Imersif 3D</span>
+          </div>
+          <h3 class="fitur-title">The Microscopic Voyage</h3>
+          <p class="fitur-desc">
+            Eksplorasi imersif 3D di mana siswa menyusut seukuran sel darah merah
+            dan menjelajahi jantung, arteri, vena, serta kapiler dari perspektif internal
+            yang belum pernah ada sebelumnya.
+          </p>
+          <ul class="fitur-tags">
+            <li class="fitur-tag">VR Immersive</li>
+            <li class="fitur-tag">Micro-Scale</li>
+            <li class="fitur-tag">360° View</li>
+          </ul>
+        </article>
+
+        <!-- Feature 3 -->
+        <article class="glass-card fitur-card reveal delay-3">
+          <div class="fitur-card-header">
+            <div class="icon-circle icon-circle-purple">🏥</div>
+            <span class="badge badge-purple">Gamifikasi</span>
+          </div>
+          <h3 class="fitur-title">Smart Diagnostic Simulator</h3>
+          <p class="fitur-desc">
+            Gamifikasi berbasis HOTS di mana siswa berperan sebagai detektif medis.
+            Diagnosa pasien virtual, identifikasi gangguan peredaran darah,
+            dan pecahkan kasus klinis interaktif.
+          </p>
+          <ul class="fitur-tags">
+            <li class="fitur-tag">Problem-Based Learning</li>
+            <li class="fitur-tag">HOTS</li>
+            <li class="fitur-tag">Virtual Patient</li>
+          </ul>
+        </article>
+
+        <!-- Feature 4 -->
+        <article class="glass-card fitur-card reveal delay-4">
+          <div class="fitur-card-header">
+            <div class="icon-circle icon-circle-green">📝</div>
+            <span class="badge badge-green">Assessment</span>
+          </div>
+          <h3 class="fitur-title">Embedded In-Game Assessment</h3>
+          <p class="fitur-desc">
+            Kuis interaktif terintegrasi di dalam lingkungan VR.
+            Siswa menjawab pertanyaan sambil menjelajahi organ — penilaian yang
+            natural tanpa keluar dari pengalaman belajar.
+          </p>
+          <ul class="fitur-tags">
+            <li class="fitur-tag">In-Game Quiz</li>
+            <li class="fitur-tag">Real-time Feedback</li>
+            <li class="fitur-tag">Adaptive</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ALUR PENGALAMAN SECTION
+       ============================================================ -->
+  <section class="section" id="alur">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="badge badge-purple">Alur Belajar</span>
+        <h2>Alur Pengalaman <span class="text-gradient">Belajar</span></h2>
+        <p>Empat fase terstruktur yang membawa siswa dari orientasi hingga evaluasi secara imersif.</p>
+      </div>
+
+      <div class="timeline">
+        <!-- Step 1 -->
+        <div class="timeline-item reveal delay-1">
+          <div class="timeline-marker">
+            <span class="timeline-number">1</span>
+          </div>
+          <div class="glass-card timeline-card">
+            <span class="badge badge-cyan">Fase 1</span>
+            <h3 class="timeline-title">Fase Orientasi</h3>
+            <p class="timeline-desc">
+              BioBot menyambut siswa di ruang virtual dan memperkenalkan lingkungan.
+              Siswa bebas mengeksplorasi model jantung 3D, mengamati ruang-ruang jantung,
+              dan berinteraksi dengan label interaktif pada setiap bagian organ.
+            </p>
+            <div class="timeline-tags">
+              <span class="fitur-tag">Welcome Tour</span>
+              <span class="fitur-tag">Free Explore</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="timeline-item reveal delay-2">
+          <div class="timeline-marker">
+            <span class="timeline-number">2</span>
+          </div>
+          <div class="glass-card timeline-card">
+            <span class="badge badge-red">Fase 2</span>
+            <h3 class="timeline-title">Fase Tantangan</h3>
+            <p class="timeline-desc">
+              BioBot memberikan misi diagnostik: seorang pasien virtual mengalami gejala
+              peredaran darah. Siswa harus menganalisis rekam medis, memeriksa gejala,
+              dan membentuk hipotesis awal.
+            </p>
+            <div class="timeline-tags">
+              <span class="fitur-tag">Misi Diagnostik</span>
+              <span class="fitur-tag">Pasien Virtual</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="timeline-item reveal delay-3">
+          <div class="timeline-marker">
+            <span class="timeline-number">3</span>
+          </div>
+          <div class="glass-card timeline-card">
+            <span class="badge badge-purple">Fase 3</span>
+            <h3 class="timeline-title">Fase Investigasi</h3>
+            <p class="timeline-desc">
+              Siswa menyusut seukuran sel darah merah dan masuk ke dalam pembuluh darah.
+              Jelajahi arteri, vena, dan kapiler sambil menganalisis anomali seperti
+              plak aterosklerosis atau bekuan darah.
+            </p>
+            <div class="timeline-tags">
+              <span class="fitur-tag">Microscopic Voyage</span>
+              <span class="fitur-tag">Analisis Anomali</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="timeline-item reveal delay-4">
+          <div class="timeline-marker">
+            <span class="timeline-number">4</span>
+          </div>
+          <div class="glass-card timeline-card">
+            <span class="badge badge-green">Fase 4</span>
+            <h3 class="timeline-title">Fase Evaluasi</h3>
+            <p class="timeline-desc">
+              Kuis interaktif muncul di dalam lingkungan VR. Siswa menjawab pertanyaan
+              berbasis kasus, menerima skor instan, dan mendapatkan feedback personal
+              dari BioBot untuk setiap jawaban.
+            </p>
+            <div class="timeline-tags">
+              <span class="fitur-tag">In-Game Quiz</span>
+              <span class="fitur-tag">Feedback AI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STATISTIK SECTION
+       ============================================================ -->
+  <section class="section statistik-section reveal" id="statistik">
+    <div class="container">
+      <div class="stats-grid">
+        <!-- Stat 1 -->
+        <div class="glass-card stat-card">
+          <span class="stat-value" data-target="360" data-suffix="°">0°</span>
+          <span class="stat-label">Pengalaman Imersif</span>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="glass-card stat-card">
+          <span class="stat-value" data-target="4" data-suffix=" Modul">0</span>
+          <span class="stat-label">Modul Pembelajaran</span>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="glass-card stat-card">
+          <span class="stat-value stat-value--text" data-text="AI">AI</span>
+          <span class="stat-label">Powered Assistant</span>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="glass-card stat-card">
+          <span class="stat-value stat-value--text" data-text="HOTS">HOTS</span>
+          <span class="stat-label">Berbasis Berpikir Kritis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA SECTION
+       ============================================================ -->
+  <section class="section cta-section reveal" id="cta">
+    <div class="container">
+      <div class="cta-wrapper">
+        <div class="cta-content">
+          <h2 class="cta-title">
+            Siap Menjadi <span class="text-gradient">Detektif Medis</span>?
+          </h2>
+          <p class="cta-subtitle">
+            Masuki dunia virtual, jelajahi sistem peredaran darah manusia dari dalam,
+            dan pecahkan kasus diagnostik bersama BioBot — asisten AI pribadimu.
+          </p>
+          <div class="cta-actions">
+            <a href="/explore.html" class="btn btn-primary btn-lg">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M10 2L3 7v9a2 2 0 002 2h10a2 2 0 002-2V7l-7-5z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <path d="M8 14v-4h4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              Mulai Eksplorasi Sekarang
+            </a>
+            <a href="/quiz.html" class="btn btn-secondary btn-lg">
+              📝 Coba Kuis Interaktif
+            </a>
+          </div>
+        </div>
+        <!-- Decorative glow orbs -->
+        <div class="cta-glow cta-glow--left" aria-hidden="true"></div>
+        <div class="cta-glow cta-glow--right" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer" id="footer">
+    <div class="container footer-container">
+      <!-- Footer Logo & Description -->
+      <div class="footer-brand">
+        <a href="/" class="nav-logo footer-logo">
+          <svg class="nav-logo-icon" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M16 2C12 2 9 5 9 8c0 2 1 3.5 2.5 5C9 14.5 7 17 7 20c0 4 3.5 7.5 9 10 5.5-2.5 9-6 9-10 0-3-2-5.5-4.5-7C22 11.5 23 10 23 8c0-3-3-6-7-6z" stroke="url(#dna-grad-f)" stroke-width="1.5" fill="none"/>
+            <circle cx="11" cy="10" r="1.5" fill="#00d4ff"/>
+            <circle cx="21" cy="10" r="1.5" fill="#ff3366"/>
+            <circle cx="21" cy="15" r="1.5" fill="#00d4ff"/>
+            <circle cx="11" cy="15" r="1.5" fill="#ff3366"/>
+            <defs>
+              <linearGradient id="dna-grad-f" x1="7" y1="2" x2="25" y2="30" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00d4ff"/>
+                <stop offset="1" stop-color="#7c3aed"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="nav-logo-text">BioVR <span class="text-gradient">Investigator</span></span>
+        </a>
+        <p class="footer-desc">
+          Media pembelajaran VR + AI imersif untuk mata pelajaran Biologi kelas XI SMA.
+          Dikembangkan untuk menjawab tantangan pembelajaran sistem peredaran darah secara inovatif.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h4 class="footer-heading">Navigasi</h4>
+        <ul>
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#masalah">Masalah</a></li>
+          <li><a href="#fitur">Fitur</a></li>
+          <li><a href="#alur">Alur Belajar</a></li>
+          <li><a href="/explore.html">Demo Eksplorasi</a></li>
+          <li><a href="/quiz.html">Kuis Interaktif</a></li>
+        </ul>
+      </div>
+
+      <!-- LIDM Info -->
+      <div class="footer-lidm">
+        <h4 class="footer-heading">Kompetisi</h4>
+        <div class="footer-lidm-badge">
+          <span class="badge badge-cyan">LIDM 2026</span>
+          <p>Dibuat untuk Lomba Inovasi Digital Mahasiswa 2026 — kategori IT Digital Product (ITDP).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 BioVR-Investigator. Dikembangkan oleh Tim BioVR.</p>
+        <p class="footer-tech">Dibangun dengan Three.js, GSAP & ❤️</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       SCRIPTS
+       ============================================================ -->
+  <script type="module" src="/js/landing/app.js"></script>
+</body>
+</html>

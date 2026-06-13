@@ -1,0 +1,11 @@
+Model Information:
+* title:	jantung
+* source:	https://sketchfab.com/3d-models/jantung-e3043d120b8d4888947bb43698cf6fec
+* author:	12jdjwjwnwnw (https://sketchfab.com/12jdjwjwnwnw)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "jantung" (https://sketchfab.com/3d-models/jantung-e3043d120b8d4888947bb43698cf6fec) by 12jdjwjwnwnw (https://sketchfab.com/12jdjwjwnwnw) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
