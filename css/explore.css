@@ -507,6 +507,34 @@ body {
   border-bottom-right-radius: var(--radius-sm);
 }
 
+/* BioBot Message Bubbles (AI-powered) */
+.biobot-msg {
+  max-width: 90%;
+  padding: 10px 14px;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  animation: bubble-appear 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.biobot-msg.msg-bot {
+  align-self: flex-start;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--glass-border);
+  color: var(--color-text-primary);
+  border-bottom-left-radius: var(--radius-sm);
+}
+
+.biobot-msg.msg-user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.15));
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  color: var(--color-text-primary);
+  border-bottom-right-radius: var(--radius-sm);
+}
+
 /* Typing Indicator */
 .typing-indicator {
   display: flex;
@@ -797,6 +825,289 @@ body {
 .diagnostic-badge.visible {
   display: block;
   animation: fade-in 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════════════════
+   BIOBOT AI STYLES
+   ══════════════════════════════════════════════════════════ */
+
+/* AI Badge */
+.biobot-ai-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #00d4ff, #7c3aed, #ff3366);
+  background-size: 200% 200%;
+  color: white;
+  border-radius: 4px;
+  margin-left: 4px;
+  vertical-align: middle;
+  animation: badge-shimmer 3s ease-in-out infinite;
+  line-height: 1.6;
+}
+
+@keyframes badge-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Status Colors */
+.biobot-status {
+  transition: color 0.3s ease;
+}
+
+.biobot-status.status-connected {
+  color: #00ff88;
+}
+
+.biobot-status.status-waiting {
+  color: #fbbf24;
+}
+
+.biobot-status.status-listening {
+  color: var(--color-red);
+  animation: pulse-text 1s ease-in-out infinite;
+}
+
+@keyframes pulse-text {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* API Key Setup Card */
+.api-key-setup {
+  padding: 8px 4px;
+}
+
+.setup-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.setup-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+  background: var(--gradient-cyan-purple);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.setup-desc {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+.setup-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: var(--space-md);
+}
+
+.setup-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+.step-num {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--color-cyan);
+  font-size: 0.65rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 212, 255, 0.25);
+}
+
+.setup-link {
+  color: var(--color-cyan);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+.setup-link:hover {
+  color: #33dfff;
+}
+
+.setup-input-group {
+  display: flex;
+  gap: 6px;
+  margin-bottom: var(--space-sm);
+}
+
+.setup-input {
+  flex: 1;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.setup-input:focus {
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.12);
+}
+
+.setup-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.setup-btn {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--gradient-cyan-purple);
+  color: white;
+  transition: all 0.2s ease;
+}
+
+.setup-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 12px var(--color-cyan-glow);
+}
+
+.setup-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.setup-note {
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+.setup-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+  to { transform: rotate(360deg); }
+}
+
+/* Formatted Bot Messages */
+.biobot-msg.msg-bot p {
+  margin: 0 0 8px 0;
+  line-height: 1.7;
+}
+
+.biobot-msg.msg-bot p:last-child {
+  margin-bottom: 0;
+}
+
+.biobot-msg.msg-bot strong {
+  color: var(--color-cyan);
+  font-weight: 700;
+}
+
+.biobot-msg.msg-bot em {
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.biobot-msg.msg-bot code {
+  background: rgba(0, 212, 255, 0.08);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.85em;
+  color: var(--color-cyan);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+}
+
+.biobot-msg.msg-bot li {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  padding: 3px 0 3px 4px;
+  line-height: 1.6;
+  position: relative;
+  list-style: none;
+}
+
+.biobot-msg.msg-bot li::before {
+  content: '•';
+  color: var(--color-cyan);
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+/* Typing Indicator Enhanced */
+.typing-indicator {
+  padding: 10px 16px !important;
+}
+
+.typing-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.typing-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  animation: typing-bounce 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+.typing-text {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* Disabled Send Button */
+.biobot-send-btn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* ══════════════════════════════════════════════════════════
